@@ -46,10 +46,19 @@ if node['platform_version'].to_i < 16
     notifies :restart, 'service[singularity]'
   end
 else
+  template '/etc/rsyslog.d/singularity.conf' do
+    source 'singularity-systemd-syslog.conf.erb'
+    notifies :restart, 'service[rsyslog]'
+  end
+
   template '/etc/systemd/system/singularity.service' do
     source 'singularity-systemd.erb'
     notifies :restart, 'service[singularity]'
   end
+end
+
+service 'rsyslog' do
+  supports   status: true, restart: true
 end
 
 service 'singularity' do
