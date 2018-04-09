@@ -45,5 +45,5 @@ default['singularity']['java_opts'] = %w(
   -Djute.maxbuffer=5000000
 )
 
-default['singularity']['ulimit'] = '102400 -c unlimited'
+default['singularity']['ulimit'] = 102400
 
