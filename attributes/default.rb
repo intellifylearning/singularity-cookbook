@@ -44,3 +44,6 @@ default['singularity']['java_opts'] = %w(
   -Djava.net.preferIPv4Stack=true
   -Djute.maxbuffer=5000000
 )
+
+default['singularity']['ulimit'] = '102400 -c unlimited'
+
