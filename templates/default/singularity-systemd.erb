@@ -15,7 +15,7 @@ LimitNOFILE=<%= node['singularity']['ulimit'] %>
 LimitNPROC=<%= node['singularity']['ulimit'] %>
 ExecStart=<%= node['java']['java_home'] %>/bin/java <%= node['singularity']['java_opts'].join ' ' %> -jar <%= node['singularity']['home'] %>/bin/SingularityService-<%= node['singularity']['version'] %>-shaded.jar server <%= node['singularity']['conf_dir'] %>/singularity.yaml
 TimeoutSec=30
-Restart=on-failure
+Restart=always
 RestartSec=30
 StartLimitInterval=350
 StartLimitBurst=10
